@@ -2,7 +2,7 @@
 
 **Spendora** is a modern, full-stack Subscription Management Dashboard designed to help you track recurring expenses, visualize spending habits, and never miss a renewal date. Built with the **MERN Stack** (MongoDB, Express, React, Node.js) and enhanced with real-time updates.
 
-![Spendora Dashboard]
+
 
 ## 🌟 Key Features
 

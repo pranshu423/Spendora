@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background: #0B0E14 */
+    --background: 220 30% 6%;
+    /* Foreground: #FFFFFF */
+    --foreground: 0 0% 100%;
+
+    /* Card: #151A23 */
+    --card: 220 25% 11%;
+    --card-foreground: 0 0% 100%;
+
+    /* Popover: #151A23 */
+    --popover: 220 25% 11%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary: #0066FF (Electric Blue) */
+    --primary: 216 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: #1F2937 (Dark Gray/Blue) */
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted: #64748B */
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent: #00C49F (Green) */
+    --accent: 169 100% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive: #EF4444 */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border: #2A3241 */
+    --border: 219 22% 21%;
+    --input: 219 22% 21%;
+    --ring: 216 100% 50%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-body;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}

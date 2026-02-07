@@ -1,0 +1,4 @@
+﻿src/App.tsx(5,1): error TS6133: 'Dashboard' is declared but its value is never read.
+src/components/Header.tsx(1,24): error TS6133: 'User' is declared but its value is never read.
+src/hooks/useSocket.tsx(23,24): error TS6133: 't' is declared but its value is never read.
+src/pages/Analytics.tsx(85,56): error TS6133: 'entry' is declared but its value is never read.

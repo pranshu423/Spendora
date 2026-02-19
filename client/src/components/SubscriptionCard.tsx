@@ -1,4 +1,4 @@
-import { Pencil, Trash2, Calendar, DollarSign, Activity, PauseCircle, XCircle } from 'lucide-react';
+import { Pencil, Trash2, Calendar, IndianRupee, Activity, PauseCircle, XCircle } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { format } from 'date-fns';
 
@@ -60,7 +60,7 @@ const SubscriptionCard = ({ subscription, onEdit, onDelete }: SubscriptionCardPr
                 <div>
                     <p className="text-xs text-muted-foreground">Amount</p>
                     <div className="mt-1 flex items-center gap-1 font-semibold text-foreground">
-                        <DollarSign size={14} className="text-muted-foreground" />
+                        <IndianRupee size={14} className="text-muted-foreground" />
                         {subscription.amount}
                         <span className="text-xs text-muted-foreground">/{subscription.billingCycle === 'Monthly' ? 'mo' : 'yr'}</span>
                     </div>

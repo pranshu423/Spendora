@@ -11,16 +11,34 @@ dotenv.config();
 const app = express();
 
 // Middleware
+// Middleware
+const allowedOrigins = [
+    'http://localhost:5173',
+    process.env.CLIENT_URL || '',
+    'https://spendora.vercel.app' // Example production URL
+].filter(Boolean);
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
 }));
 app.use(express.json());
 
 // Routes
+import userRoutes from './routes/userRoutes';
+import paymentRoutes from './routes/paymentRoutes';
+
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/subscriptions', subscriptionRoutes);
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/payments', paymentRoutes);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Spendora API is running');

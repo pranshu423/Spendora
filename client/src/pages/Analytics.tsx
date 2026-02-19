@@ -50,7 +50,7 @@ const Analytics = () => {
             <div className="grid gap-6 md:grid-cols-3">
                 <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
                     <h3 className="text-sm font-medium text-muted-foreground">Total Monthly Spend</h3>
-                    <p className="mt-2 text-3xl font-bold text-primary">${data.totalMonthlySpend.toFixed(2)}</p>
+                    <p className="mt-2 text-3xl font-bold text-primary">₹{data.totalMonthlySpend.toFixed(2)}</p>
                 </div>
                 <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
                     <h3 className="text-sm font-medium text-muted-foreground">Active Subscriptions</h3>

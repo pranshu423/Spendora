@@ -155,7 +155,7 @@ const DashboardWidgets = ({ subscriptions }: DashboardWidgetsProps) => {
                     <div className="mb-4">
                         <h3 className="text-sm font-medium text-muted-foreground">Total Monthly Spend</h3>
                         <div className="flex items-baseline gap-2 mt-2">
-                            <span className="text-3xl font-bold text-foreground">${stats.totalMonthlySpend.toFixed(2)}</span>
+                            <span className="text-3xl font-bold text-foreground">₹{stats.totalMonthlySpend.toFixed(2)}</span>
                             <span className="text-sm font-medium text-accent flex items-center">
                                 <TrendingUp size={14} className="mr-1" />
                                 5.2%
@@ -184,7 +184,7 @@ const DashboardWidgets = ({ subscriptions }: DashboardWidgetsProps) => {
                     <div className="mb-2">
                         <h3 className="text-sm font-medium text-muted-foreground">Monthly Savings</h3>
                         <div className="flex items-baseline gap-2 mt-2">
-                            <span className="text-3xl font-bold text-foreground">${stats.monthlySavings.toFixed(2)}</span>
+                            <span className="text-3xl font-bold text-foreground">₹{stats.monthlySavings.toFixed(2)}</span>
                             <span className="text-sm font-medium text-accent flex items-center">
                                 <TrendingUp size={14} className="mr-1" />
                                 +12%
@@ -319,7 +319,7 @@ const DashboardWidgets = ({ subscriptions }: DashboardWidgetsProps) => {
                                             {isCritical && <span className="ml-2 text-[10px] bg-yellow-500/10 text-yellow-500 px-2 py-0.5 rounded-full border border-yellow-500/20">Expiring</span>}
                                         </td>
                                         <td className="p-6 font-bold text-foreground">
-                                            ${sub.amount.toFixed(2)}
+                                            ₹{sub.amount.toFixed(2)}
                                         </td>
                                         <td className="p-6">
                                             <span className="flex items-center gap-1.5 text-xs font-bold text-accent">

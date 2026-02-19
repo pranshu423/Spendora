@@ -126,16 +126,53 @@ const AddSubscriptionModal = ({ isOpen, onClose, onSuccess, initialData }: AddSu
                             {errors.category && <p className="mt-1 text-xs text-destructive">{errors.category.message}</p>}
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-foreground">Amount</label>
-                            <input
-                                {...register('amount', { valueAsNumber: true })}
-                                type="number"
-                                step="0.01"
-                                className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary text-foreground"
-                            />
+                            <label className="block text-sm font-medium text-foreground">Amount (₹)</label>
+                            <div className="relative mt-1">
+                                <span className="absolute left-3 top-2 text-muted-foreground">₹</span>
+                                <input
+                                    {...register('amount', { valueAsNumber: true })}
+                                    type="number"
+                                    step="0.01"
+                                    className="block w-full rounded-md border border-input bg-background pl-7 pr-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary text-foreground"
+                                />
+                            </div>
                             {errors.amount && <p className="mt-1 text-xs text-destructive">{errors.amount.message}</p>}
                         </div>
                     </div>
+
+                    {/* Popular Services Chips */}
+                    {!initialData && (
+                        <div className="space-y-2 mb-4">
+                            <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Popular Services</label>
+                            <div className="flex flex-wrap gap-2">
+                                {[
+                                    { name: 'Netflix', category: 'Entertainment', amount: 649, billing: 'Monthly' },
+                                    { name: 'Spotify', category: 'Entertainment', amount: 119, billing: 'Monthly' },
+                                    { name: 'YouTube Premium', category: 'Entertainment', amount: 129, billing: 'Monthly' },
+                                    { name: 'Amazon Prime', category: 'Entertainment', amount: 299, billing: 'Monthly' },
+                                    { name: 'ChatGPT Plus', category: 'Productivity', amount: 1999, billing: 'Monthly' },
+                                    { name: 'Xbox Game Pass', category: 'Entertainment', amount: 549, billing: 'Monthly' }
+                                ].map((service) => (
+                                    <button
+                                        key={service.name}
+                                        type="button"
+                                        onClick={() => {
+                                            reset({
+                                                name: service.name,
+                                                category: service.category,
+                                                amount: service.amount,
+                                                billingCycle: service.billing as 'Monthly' | 'Yearly',
+                                                nextRenewalDate: new Date().toISOString().split('T')[0]
+                                            });
+                                        }}
+                                        className="text-xs px-3 py-1.5 rounded-full bg-secondary/50 hover:bg-primary/20 hover:text-primary border border-transparent hover:border-primary/30 transition-all duration-300 transform hover:scale-105"
+                                    >
+                                        {service.name}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     <div className="grid grid-cols-2 gap-4">
                         <div>
@@ -153,6 +190,7 @@ const AddSubscriptionModal = ({ isOpen, onClose, onSuccess, initialData }: AddSu
                             <input
                                 {...register('nextRenewalDate')}
                                 type="date"
+                                min={new Date().toISOString().split('T')[0]}
                                 className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary text-foreground"
                             />
                             {errors.nextRenewalDate && <p className="mt-1 text-xs text-destructive">{errors.nextRenewalDate.message}</p>}

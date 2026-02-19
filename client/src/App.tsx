@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { SocketProvider } from './context/SocketContext';
+import NotificationToast from './components/ui/NotificationToast';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -16,20 +18,23 @@ function App() {
     return (
         <Router>
             <AuthProvider>
-                <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route element={<ProtectedRoute />}>
-                        <Route element={<DashboardLayout />}>
-                            <Route path="/dashboard" element={<Dashboard />} />
-                            <Route path="/subscriptions" element={<Subscriptions />} />
-                            <Route path="/payments" element={<Payments />} />
-                            <Route path="/reports" element={<Reports />} />
-                            <Route path="/settings" element={<Settings />} />
-                            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                <SocketProvider>
+                    <NotificationToast />
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route element={<ProtectedRoute />}>
+                            <Route element={<DashboardLayout />}>
+                                <Route path="/dashboard" element={<Dashboard />} />
+                                <Route path="/subscriptions" element={<Subscriptions />} />
+                                <Route path="/payments" element={<Payments />} />
+                                <Route path="/reports" element={<Reports />} />
+                                <Route path="/settings" element={<Settings />} />
+                                <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                            </Route>
                         </Route>
-                    </Route>
-                </Routes>
+                    </Routes>
+                </SocketProvider>
             </AuthProvider>
         </Router>
     );

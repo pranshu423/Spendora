@@ -6,45 +6,45 @@
 
 @layer base {
   :root {
-    /* Background: #0B0E14 */
-    --background: 220 30% 6%;
-    /* Foreground: #FFFFFF */
+    /* Background: Deep Black/Blue */
+    --background: 240 10% 4%;
+    /* Foreground: White */
     --foreground: 0 0% 100%;
 
-    /* Card: #151A23 */
-    --card: 220 25% 11%;
+    /* Card: Slightly lighter black with glass effect base */
+    --card: 240 10% 7%;
     --card-foreground: 0 0% 100%;
 
-    /* Popover: #151A23 */
-    --popover: 220 25% 11%;
+    /* Popover */
+    --popover: 240 10% 7%;
     --popover-foreground: 0 0% 100%;
 
-    /* Primary: #0066FF (Electric Blue) */
-    --primary: 216 100% 50%;
+    /* Primary: Neon Electric Blue */
+    --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: #1F2937 (Dark Gray/Blue) */
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary: Neon Purple/Pink */
+    --secondary: 270 100% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Muted: #64748B */
+    /* Muted: Dark Blue Grey */
     --muted: 215 28% 17%;
     --muted-foreground: 215 20% 65%;
 
-    /* Accent: #00C49F (Green) */
-    --accent: 169 100% 38%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent: Neon Green/Cyan */
+    --accent: 150 100% 50%;
+    --accent-foreground: 240 10% 4%;
 
-    /* Destructive: #EF4444 */
-    --destructive: 0 84% 60%;
+    /* Destructive: Neon Red */
+    --destructive: 0 100% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Border: #2A3241 */
-    --border: 219 22% 21%;
-    --input: 219 22% 21%;
-    --ring: 216 100% 50%;
+    /* Border: Subtle glowy border */
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 210 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 }
 

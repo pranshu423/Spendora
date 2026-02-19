@@ -10,22 +10,9 @@ const NotificationToast = () => {
             if (prefs.push) toast.success(`Subscription added: ${e.detail.name}`);
         };
 
-        const handleSubscriptionUpdated = (e: any) => {
-            // Optional: only toast if significant change? 
-            // user said: "if user edits his name... it should be updated".
-            // For subscription updates, maybe we don't spam toasts unless status changes.
-            // But let's keep it simple for now or skip to avoid noise.
-            // toast.success(`Subscription updated: ${e.detail.name}`);
-        };
-
         const handlePaymentProcessed = (e: any) => {
             const prefs = JSON.parse(localStorage.getItem('spendora_prefs') || '{"push":true}');
             if (prefs.push) toast.success(`Payment processed: ₹${e.detail.amount} for ${e.detail.subscription}`);
-        };
-
-        const handleRenewalNotification = (e: any) => {
-            // If we had a specific event for upcoming renewal, we'd handle it here.
-            // The backend cron emits 'payment_processed' when it renews.
         };
 
         window.addEventListener('subscription_added', handleSubscriptionAdded);
@@ -52,7 +39,7 @@ const NotificationToast = () => {
         >
             {(t) => (
                 <ToastBar toast={t}>
-                    {({ icon, message }) => (
+                    {({ message }) => (
                         <motion.div
                             initial={{ opacity: 0, x: 50, scale: 0.9 }}
                             animate={{ opacity: 1, x: 0, scale: 1 }}
